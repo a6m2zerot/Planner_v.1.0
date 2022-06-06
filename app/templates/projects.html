@@ -7,6 +7,64 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <p>   {{ param.name }}   </p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Design</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="{{ url_for('meet_name') }}">Calendar view</a>
+            </div>
+        </div>
+        <a class="btn btn-outline-success me-4" href="{{ url_for('logout') }}" role="button">Log out</a>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+
+<ul class="list-group list-group d-grid gap-2 col-2 mx-auto">
+  <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color:#FFFF40">{{ param.name }}</li>
+    <ol class="list-group list-group-numbered">
+    {% for i in zzz %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="ms-2 me-auto">{{ i.task_name}}</div>
+        <span class="bg-primary rounded-pill">{{ i.statictasks.status }}</span>
+        </li>
+    {% endfor %}
+    </ol>
+</ul>
+
+<br>
+<br>
+<br>
+      <div class="d-grid gap-2 col-1 mx-auto">
+            <a class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#z_button">Добавить задачу</a>
+      </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="z_button" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Создать задачу для {{ param.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="">
+                    <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="TaskName" class="form-label">Название задачи</label>
+                                <input type="text" class="form-control" id="TaskName" name="TaskName">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                         <input type="submit" value="Сохранить" class="btn btn-primary">
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

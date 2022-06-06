@@ -1,0 +1,13 @@
+{
+  "web": {
+    "client_id": "381723318139-cdr728ovb520igff64muq7jm2sfru2c7.apps.googleusercontent.com",
+    "project_id": "planner-python-project",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": [
+      "http://127.0.0.1:5000/oauth2callback"
+    ]
+  }
+}
